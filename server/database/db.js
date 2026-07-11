@@ -3,18 +3,20 @@ require('dotenv').config();
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
-  port: parseInt(process.env.DB_PORT) || 4000, 
+  port: parseInt(process.env.DB_PORT) || 4000,
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'orthocare_db',
   waitForConnections: true,
-  connectionLimit: 50, 
-  queueLimit: 0,      
+  connectionLimit: 50,
+  queueLimit: 0,
   enableKeepAlive: true,
-  keepAliveInitialDelay: 10000, 
+  keepAliveInitialDelay: 10000,
   ssl: {
-    rejectUnauthorized: true 
+    rejectUnauthorized: true
+  }
 });
+
 
 (async () => {
   try {
